@@ -2,7 +2,7 @@
 
 ## Overview
 
-Every user on the platform has a digital wallet. Students and staff use their wallet balance to purchase items from the campus shop. Cashiers load funds onto accounts by accepting cash and running a top-up. All balance changes are processed server-side through Supabase RPCs — the app never writes a balance figure directly to the database.
+Every user on the platform has a digital wallet. Students and staff use their wallet balance to purchase items from the campus shop. Cashiers load funds onto accounts by accepting cash and running a top-up. All balance changes are processed server-side through Supabase RPCs - the app never writes a balance figure directly to the database.
 
 ## Roles
 
@@ -45,7 +45,7 @@ An offline banner appears when the last balance fetch failed or connectivity is 
 
 Accessible to cashier and admin roles only.
 
-**Step 1 — Find account**
+**Step 1 - Find account**
 
 The cashier searches by:
 - Name (partial match, case-insensitive)
@@ -54,7 +54,7 @@ The cashier searches by:
 
 Results are fetched from Supabase `profiles` table in real time.
 
-**Step 2 — Top up**
+**Step 2 - Top up**
 
 After selecting an account, the cashier sees:
 - Profile name, email, staff number, role

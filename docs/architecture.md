@@ -34,9 +34,9 @@ Unauthenticated users are always redirected to `/login`.
 
 All state uses Riverpod. The key provider types:
 
-- `AsyncNotifierProvider` — for stateful flows with loading/error/data (scanning, attendance session, student check-in, wallet).
-- `FutureProvider` — for one-shot async initialisation (repositories, database instance).
-- `Provider` — for synchronous services (NfcService, SyncService).
+- `AsyncNotifierProvider` - for stateful flows with loading/error/data (scanning, attendance session, student check-in, wallet).
+- `FutureProvider` - for one-shot async initialisation (repositories, database instance).
+- `Provider` - for synchronous services (NfcService, SyncService).
 
 ## Data Layer
 
@@ -69,19 +69,19 @@ Supabase is the source of truth. All writes go through PostgreSQL functions (RPC
 
 #### Core tables (managed outside `schema.sql`)
 
-- `profiles` — one row per auth user; contains `role`, `name`, `email`, `student_id`, `staff_number`
-- `students` — student registry with `student_number`, `name`, `level`, `program`
-- `vehicles` — vehicle records
-- `nfc_cards` — NFC card identifiers
-- `access_events` — synced gate ENTRY/EXIT events
+- `profiles` - one row per auth user; contains `role`, `name`, `email`, `student_id`, `staff_number`
+- `students` - student registry with `student_number`, `name`, `level`, `program`
+- `vehicles` - vehicle records
+- `nfc_cards` - NFC card identifiers
+- `access_events` - synced gate ENTRY/EXIT events
 
 #### Tables defined in `schema.sql`
 
-- `shop_items` — campus shop catalogue
-- `purchases` — purchase transactions
-- `purchase_references` — QR code payload and OTP short code per purchase
-- `attendance_sessions` — lecturer-created class sessions with time-limited token
-- `session_check_ins` — one row per student per session
+- `shop_items` - campus shop catalogue
+- `purchases` - purchase transactions
+- `purchase_references` - QR code payload and OTP short code per purchase
+- `attendance_sessions` - lecturer-created class sessions with time-limited token
+- `session_check_ins` - one row per student per session
 
 #### RPCs
 
@@ -103,11 +103,11 @@ Supabase is the source of truth. All writes go through PostgreSQL functions (RPC
 
 **Gate access events** are written to `pending_events` locally first. `SyncService.syncPendingEvents()` uploads them to `access_events` in Supabase when connectivity is available.
 
-**Reference data** (students, vehicles, NFC cards) is pulled wholesale from Supabase via `SyncService.syncReferenceData()`. This runs atomically inside a SQLite transaction — it deletes all local rows and re-inserts the fresh data.
+**Reference data** (students, vehicles, NFC cards) is pulled wholesale from Supabase via `SyncService.syncReferenceData()`. This runs atomically inside a SQLite transaction - it deletes all local rows and re-inserts the fresh data.
 
-**Wallet and shop** — all mutations require online connectivity (enforced via `ConnectivityResult.none` check in `WalletRepository`). The balance and transaction list are cached in SQLite after each remote operation for display.
+**Wallet and shop** - all mutations require online connectivity (enforced via `ConnectivityResult.none` check in `WalletRepository`). The balance and transaction list are cached in SQLite after each remote operation for display.
 
-**Attendance** — `createSession` and `studentCheckIn` both require online access (RPC calls). The session and check-in are cached locally after the RPC succeeds. The live roster uses Supabase Realtime (`.stream()`) so the lecturer's roster updates in real time as students check in from their own devices.
+**Attendance** - `createSession` and `studentCheckIn` both require online access (RPC calls). The session and check-in are cached locally after the RPC succeeds. The live roster uses Supabase Realtime (`.stream()`) so the lecturer's roster updates in real time as students check in from their own devices.
 
 ## NFC Architecture
 

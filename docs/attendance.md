@@ -44,7 +44,7 @@ The lecturer can optionally write the session token to a physical NFC tag. Tappi
 The live dashboard shows:
 - Session header (course code, name, lecturer, countdown timer)
 - Number of checked-in students
-- Scrollable roster list — each row shows: method icon (QR/NFC), student name, student number, programme, and check-in time
+- Scrollable roster list - each row shows: method icon (QR/NFC), student name, student number, programme, and check-in time
 
 The roster is powered by a Supabase Realtime `.stream()` subscription on `session_check_ins` filtered by `session_id`. Each new check-in from any student device appears within seconds without any manual refresh.
 

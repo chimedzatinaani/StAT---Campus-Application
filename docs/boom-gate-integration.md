@@ -33,7 +33,7 @@ Cards are written using `NfcService.writeNfcCard()` at registration time via `St
 
 ## Integration Options
 
-### Option A — App triggers gate via local network
+### Option A - App triggers gate via local network
 
 The phone connects to a gate controller on the campus LAN (TCP socket or HTTP). After a successful ENTRY event, the app sends a signal to open the boom gate.
 
@@ -49,11 +49,11 @@ if (eventType == 'ENTRY') {
 
 The `GateControllerService` would be a Riverpod `Provider` configured with the gate IP and port.
 
-### Option B — Gate controller reads Supabase in real time
+### Option B - Gate controller reads Supabase in real time
 
 The gate controller is a separate device (Raspberry Pi, Arduino + ESP32, etc.) that subscribes to the Supabase `access_events` table via the Supabase Realtime WebSocket. When a new ENTRY event arrives, it activates the gate relay.
 
-This is the lowest-friction approach — no changes to the Flutter app. The gate controller logic is entirely separate from the mobile app.
+This is the lowest-friction approach - no changes to the Flutter app. The gate controller logic is entirely separate from the mobile app.
 
 **Supabase side:** Enable Realtime for `access_events`:
 ```sql
@@ -62,7 +62,7 @@ ALTER PUBLICATION supabase_realtime ADD TABLE access_events;
 
 **Controller side:** Subscribe to inserts on `access_events` filtered by `event_type = 'ENTRY'` and the relevant gate location identifier.
 
-### Option C — Gate has its own NFC reader
+### Option C - Gate has its own NFC reader
 
 A fixed NFC reader at the gate (connected to a controller) reads the card independently. The controller queries Supabase directly (`nfc_cards` table) to verify the card is active, then opens the gate and logs the event to `access_events`.
 

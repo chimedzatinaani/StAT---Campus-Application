@@ -15,7 +15,7 @@ Security guards use the app as a handheld terminal to manage vehicle access thro
 
 The main security screen has two tabs:
 
-### Tab 1 — NFC Card
+### Tab 1 - NFC Card
 
 The app begins listening for NFC tags as soon as the screen loads (`ScanningController.startScanning()`). When a guard holds a student's NFC card near the device:
 
@@ -33,7 +33,7 @@ Events are written to the local `pending_events` table with `synced = 0`. The sy
 
 If a student is not found (unknown card), an error state is shown with a "Try Again" button.
 
-### Tab 2 — Plate Number
+### Tab 2 - Plate Number
 
 The guard types all or part of a licence plate number. The app searches the local `vehicles` table (joined to `students`). If only one result is found, a details sheet opens immediately. If multiple matches exist, a list is shown for the guard to select from.
 
@@ -80,7 +80,7 @@ Results are fetched from the local `pending_events` table joined to `nfc_cards`,
 
 Shows how many events are pending upload and allows the guard to manually trigger a sync. The sync process:
 
-1. Checks connectivity — aborts if offline
+1. Checks connectivity - aborts if offline
 2. Uploads all `pending_events` rows with `synced = 0` to Supabase `access_events`
 3. Marks each successfully uploaded event as `synced = 1`
 
@@ -108,7 +108,7 @@ pending_events (
 
 ## Supabase Tables
 
-- `students` — master student registry
-- `vehicles` — vehicle records
-- `nfc_cards` — NFC card identifiers with `is_active` flag
-- `access_events` — synced gate events (destination for `pending_events` sync)
+- `students` - master student registry
+- `vehicles` - vehicle records
+- `nfc_cards` - NFC card identifiers with `is_active` flag
+- `access_events` - synced gate events (destination for `pending_events` sync)
