@@ -55,4 +55,4 @@ This is the first public release of StAT, a unified campus management platform b
 
 | File | Description |
 |---|---|
-| [`StAT-v1.0.0.apk`](StAT-v1.0.0.apk) | Android application package — install directly on device |
+| [`StAT-v1.0.0.apk`](https://github.com/chimedzatinaani/StAT---Campus-Application/raw/main/release/StAT-v1.0.0.apk) | Android application package — install directly on device |
