@@ -1,4 +1,4 @@
-# StAT — Student & Staff Access Terminal
+# StAT - Student & Staff Access Terminal
 
 StAT is a unified digital ecosystem developed to streamline campus security, academic operations and internal commerce into a single mobile platform. It replaces fragmented manual processes such as physical sign-in books, paper attendance registers and cash transactions. 
 
