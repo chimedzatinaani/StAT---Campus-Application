@@ -40,8 +40,8 @@ See [docs/campus-wallet.md](docs/campus-wallet.md).
 
 Every user authenticates via Supabase Auth and has a `profiles.role` column that determines their starting route and feature access.
 
-| Role | Home route | Key capabilities |
-|---|---|---|
+| Role | Key capabilities |
+|---|---|
 | `admin` | Full access to every feature, user management |
 | `security` | NFC gate scanning, plate lookup, student registration, activity log |
 | `cashier` | Wallet top-up, view all transactions, purchase redemption |
