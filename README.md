@@ -61,7 +61,7 @@ See [docs/architecture.md](docs/architecture.md) for the full data model.
 
 ## Demo Setup and Access
 
-1. **Download the APK** from the `demo/` directory in this repository.
+1. **Download the APK** from the `release/` directory in this repository.
 2. **Request login credentials** by filling out the [Access Request Form](https://tinaanichimedza.co.zw/stat/access_request/).
 3. **Install the APK** on an Android device.
 4. **Log in** using the credentials sent to your email and start exploring the app.
