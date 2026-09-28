@@ -1,5 +1,7 @@
 # StAT - Student & Staff Access Terminal
 
+> Copyright © 2026 Tinaani Chimedza. All rights reserved. See [LICENSE](LICENSE).
+
 StAT is a unified digital ecosystem developed to streamline campus security, academic operations and internal commerce into a single mobile platform. It replaces fragmented manual processes such as physical sign-in books, paper attendance registers and cash transactions. 
 
 It is a Flutter mobile application that handles physical entrance access via NFC, student attendance via QR code and NFC, a campus digital wallet, and a campus shop/POS. All data is backed by Supabase (PostgreSQL + Auth + Realtime) with an offline-first SQLite cache on device.
